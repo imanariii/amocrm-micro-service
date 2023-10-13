@@ -1,5 +1,5 @@
 
-import { Body, Controller, Get } from "@nestjs/common";
+import { Body, Controller, Get, Query, Req } from "@nestjs/common";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UsersService } from "./users.service";
 
@@ -9,5 +9,9 @@ export class UsersController {
   @Get('create')
   findOrCreate(@Body() createUserDto: CreateUserDto) {
     return this.usersService.findOrCreate(createUserDto)
+  }
+  @Get('')
+  getToken(@Req() req) {
+    console.log(req)
   }
 }
